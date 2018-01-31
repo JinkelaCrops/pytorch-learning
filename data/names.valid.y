@@ -1,0 +1,17 @@
+English
+Japanese
+Russian
+English
+English
+French
+Russian
+Italian
+Russian
+Arabic
+English
+Russian
+Italian
+Italian
+English
+Russian
+Arabic
