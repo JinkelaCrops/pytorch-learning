@@ -43,6 +43,12 @@ python train.py
 python predict.py
 ```
 
+* Only use official python packages in trainvalidsplit.py, so it is quite simple. For the sake of improving performance, we can use pandas, numpy and concurrent
+
+
+
+
+
 ## Generating Shakespeare
 
 ## Generating Names
