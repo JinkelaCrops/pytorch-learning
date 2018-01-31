@@ -14,7 +14,7 @@ A machine learning task should include these steps:
 * training
 * prediction
 
-While doing data processing, we should decode the data into recognizable datasets,
+While doing **data processing**, we should decode the data into recognizable datasets,
 clean the data, split data into train, valid, test datasets, and make relevant features.
 To improve the training quality, sometimes we have to do data screening.
 This is the step of understanding data.
@@ -23,14 +23,14 @@ In NLP tasks, we have to process text data, sound data even image data.
 As for text data, the most important thing is text cleaning and screening.
 In the learning, we do not focus on this topic, instead, we will pay more attention on word/character embedding.
 
-While training a NN, we should construct the model well and tune the parameters well.
+While **training** a NN, we should construct the model well and tune the parameters well.
 The hardest part is code designing, once wrote done code, the only thing we have to do is tuning the parameters.
 
 There are many good github repos such as OpenNMT-py and practical-pytorch,
 from which we can learn how to orginize our code, what's more,
 we can improve our python skills and deep-learning skills by learning those repos.
 
-Prediction is much more complicate, it requires deep data understanding and we will skip this topic.
+**Prediction** is much more complicate, it requires deep data understanding and we will skip this topic.
 
 All codes must be written by myself, never use the classes and functions in the referring repos.
 
@@ -43,10 +43,11 @@ python train.py
 python predict.py
 ```
 
-* Only use official python packages in trainvalidsplit.py, so it is quite simple. For the sake of improving performance, we can use pandas, numpy and concurrent
+Only use official python packages in trainvalidsplit.py, so it is quite simple. For the sake of improving performance, we can use pandas, numpy and concurrent
 
-
-
+While doing preprocessing, we have the following steps:
+1. make tensor features, turn text x into inequal-length tensor, turn text y into onehot tensor. x tensor and y tensor both consist of tensor of dictionary indexes.
+2. saving `train.pt`, `valid.pt`, `dictionary.pt`. `dictionary.pt` is generated from `train.pt`, which contains x dictionary and y dictionary.
 
 
 ## Generating Shakespeare

@@ -111,7 +111,7 @@ class TextClean(object):
         if direction == "x":
             # del symbols, turn unicode to ascii
             data_lines = [self.clean(data_line) for data_line in data_lines]
-            # data_lines = [" ".join(data_line.split()) for data_line in data_lines]
+            data_lines = [" ".join(data_line.split()) for data_line in data_lines]
 
         if direction == "y":
             """
