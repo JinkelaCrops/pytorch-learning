@@ -1,4 +1,3 @@
-
 class BaseFunction(object):
 
     @staticmethod
