@@ -50,14 +50,28 @@ class Unpack(object):
         x, y = data_line.split(self.sep)
         return x, y
 
+    @staticmethod
+    def __pre_clean(line, flag=0):
+        """
+        some rules to check during unpack
+        :return: bool
+        """
+        flag += re.search("To.*The.*First.*Page", line) is not None
+        return flag == 0
+
     def unpack(self):
         for data_line in self.data_lines:
             try:
                 x, y = self.line_unpack(data_line)
+                assert self.__pre_clean(data_line)
+                self.x.append(x)
+                self.y.append(y)
+            except AssertionError as e:
+                print("Unpack.__pre_clean: from %s raise %s: "
+                      "pre check does not pass: %s, %s" % (e.__class__, e.__context__, e.__doc__, data_line[:-1]))
             except ValueError as e:
-                print("Unpack.unpack: from %s raise %s, %s" % (e.__class__, e.__context__, data_line))
-            self.x.append(x)
-            self.y.append(y)
+                print("Unpack.unpack: from %s raise %s: "
+                      "%s, %s" % (e.__class__, e.__context__, e.__doc__, data_line[:-1]))
         return self.x, self.y
 
 
@@ -104,7 +118,7 @@ class TextClean(object):
     def clean(self, data_line):
         data_line = self.unicode_to_ascii(data_line)
         data_line = re.sub("[^%s]" % re.escape(self.all_letters), "", data_line)
-        data_line = re.sub("[%s]" % re.escape(" .,;'-"), " ", data_line)
+        data_line = re.sub("[%s]" % re.escape(" .,;'-"), "-", data_line)
         return data_line.strip()
 
     def data_process(self, data_lines, direction="x"):

@@ -46,8 +46,9 @@ python predict.py
 Only use official python packages in trainvalidsplit.py, so it is quite simple. For the sake of improving performance, we can use pandas, numpy and concurrent
 
 While doing preprocessing, we have the following steps:
-1. make tensor features, turn text x into inequal-length tensor, turn text y into onehot tensor. x tensor and y tensor both consist of tensor of dictionary indexes.
-2. saving `train.pt`, `valid.pt`, `dictionary.pt`. `dictionary.pt` is generated from `train.pt`, which contains x dictionary and y dictionary.
+1. saving `train.pt`, `valid.pt`, `dictionary.pt`. `dictionary.pt` is generated from `train.pt`, which contains x dictionary and y dictionary.
+2. make tensor features, turn text x into inequal-length tensor, turn text y into onehot tensor. x tensor and y tensor both consist of tensor of dictionary indexes.
+
 
 
 ## Generating Shakespeare
